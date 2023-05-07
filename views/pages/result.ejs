@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+<%- include('../partials/head.ejs'); %>
+</head>
+<body>
+  <span id="span_url"><%= socketURL %></span>
+		<h1>Selected Class Result</h1>
+ 	<div class="container">
+		<div class="bx">
+			<p>Mage</p>
+			<div class="bx-content">
+ 			<img class="img_mage" src="/images/mage_wizard.webp" />
+			</div>
+ 			<span id="span_mage">0</span>
+ 		</div>
+
+		 <div class="bx">
+			<p>Warrior</p>
+		 <div class="bx-content">
+			<img class="img_war" src="/images/warrior.webp" alt="img" />
+	 </div>
+				<span id="span_warrior">0</span>
+			</div>
+
+			<div class="bx">
+				<p>Archer</p>
+				<div class="bx-content">
+				 <img class="img_archer" src="/images/archer.webp">
+			</div>
+ 			<span id="span_archer">0</span>
+ 		</div>
+	</div>
+
+
+
+
+
+	<script type="text/javascript">
+		var socket = io.connect($("#span_url").html());
+
+		socket.on('vote_mage', function(vote){
+			var addVote = parseInt(vote);
+			var count = parseInt($("#span_mage").html());
+
+			var newCount = count + addVote;
+			console.log(newCount);
+			$('#span_mage').html(newCount);
+		});
+
+		socket.on('vote_warrior', function(vote){
+			var addVote = parseInt(vote);
+			var count = parseInt($("#span_warrior").html());
+
+			var newCount = count + addVote;
+			console.log(newCount);
+			$('#span_warrior').html(newCount);
+		});
+
+		socket.on('vote_archer', function(vote){
+		var addVote = parseInt(vote);
+		var count = parseInt($("#span_archer").html());
+
+		var newCount = count + addVote;
+		console.log(newCount);
+		$('#span_archer').html(newCount);
+		});
+
+
+	</script>
+</body>
+</html>

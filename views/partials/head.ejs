@@ -1,0 +1,234 @@
+
+  <meta charset="UTF-8" />
+  <title>Voting System</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <link rel="icon" href="favicon.png">
+  <script src="socket.io/socket.io.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+
+  <style>
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+
+*{
+margin:0;
+padding: 0;
+box-sizing: border-box;
+border: none;
+text-decoration: none;
+text-transform: capitalize;
+transition: all 0.2s linear;
+line-height: 1.5;
+font-family: "Open Sans";
+user-select: none;
+
+}
+
+*:before, *:after {
+    box-sizing: border-box;
+  }
+
+
+html{
+font-size: 62.5%;
+scroll-behavior:smooth;
+height: 100vh;
+}
+
+body{
+  background: radial-gradient(#003, #000);
+  padding: 3rem 10rem 3rem 10rem;
+}
+
+h1{
+	color: rgb(176, 148, 148);
+  display: block;
+  text-align: center;
+}
+
+
+.container{
+	display: flex;
+  flex-direction: row;
+	align-items: center;
+	justify-content: center;
+  background-color: rgba(#000, 0.5);
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 0 8rem;
+  
+}
+
+
+.container .bx{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  width: 30rem;
+  height: 90%;
+  margin: 5rem 0rem;
+  padding: 5rem 0rem;
+  background: rgb(19,34,107);
+  background: radial-gradient(circle, rgba(19,34,107,1) 0%, rgba(14,13,13,0.8940365574940914) 100%);
+  border: 3rem solid rgba(19,34,107,1) 0%;
+  border-radius: 2rem 2rem;
+
+}
+
+.container .bx:hover{
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  width: 32rem;
+  height: 100%;
+  margin: 5rem 0rem;
+  padding: 5rem 0rem;
+}
+
+.container .bx .bx-content{
+width: 100%;
+height: 30rem;
+position: relative;
+
+}
+
+.container .bx .bx-content img {
+object-fit: cover;
+width: 100%;
+height: 100%;
+position: absolute;
+padding: 0rem 2.5rem;
+}
+
+.container .bx .bx-content .img_mage {
+  overflow: hidden;
+  object-position: top;
+  border-radius: 50% 50% 50% 50% / 45% 45% 55% 55% ;
+
+}
+
+.container .bx .bx-content .img_war {
+  overflow: hidden;
+  object-position: top;
+  border-radius: 50% 50% 50% 50% / 30% 32% 68% 70% ;
+}
+
+.container .bx .bx-content .img_archer {
+  overflow: hidden;
+  object-position: top;
+  border-radius: 50% 50% 45% 55% / 100% 100% 0% 0% ;
+
+}
+
+.container .bx p{
+  display: flex;
+	padding: 1rem;
+	margin-bottom: 2rem;
+  font-size: 24px;
+  color: white;
+}
+
+.container .bx span{
+  display: flex;
+	padding: 1rem;
+	margin-top: 2rem;
+  height: 4rem;
+  color: rgb(16, 15, 15);
+  background: rgb(215,215,215);
+  background: radial-gradient(circle, rgba(215,215,215,1) 0%, rgba(84,87,90,1) 100%);
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+}
+
+.span_url{
+  display: none;
+}
+
+
+.container .bx button{
+  margin-top: 2rem;
+	padding:1rem;
+	background-color: rgb(76, 76, 76);
+	color: white;
+}
+
+.container .bx button:hover{
+  margin-top: 2rem;
+	padding:1rem 1.1rem;
+	background-color: rgb(210, 204, 204);
+	color: rgb(255, 255, 255);
+  transition: 0.3s;
+  opacity: 0.15s;
+  font-size: 1.4rem;
+}
+
+.container .bx button:active{
+  margin-top: 2rem;
+	padding:1rem 1.2rem;
+	background-color: rgb(76, 76, 76);
+	color: white;
+}
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 1025px) {
+  html{
+    font: size 50%;
+  }
+
+  .container{
+	display: flex;
+  flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  background-color: rgba(#000, 0.5);
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 0 8rem;
+  
+}
+}
+
+@media screen and (max-width: 991px) {
+  
+  html{
+    font: size 40%;
+  }
+}
+
+@media screen and (max-width: 587px) {
+  
+  html{
+    font: size 40%;
+  }
+
+  body{
+  background: radial-gradient(#003, #000);
+  padding: 3rem 0rem 3rem 0rem;
+}
+
+.container{
+	display: flex;
+  flex-direction: row;
+	align-items: center;
+	justify-content: center;
+  background-color: rgba(#000, 0.5);
+  gap: 3rem;
+  flex-wrap: wrap;
+  padding: 0 4rem;
+  
+}
+}
+
+
+</style>

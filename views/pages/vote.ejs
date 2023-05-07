@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<%- include('../partials/head.ejs'); %>
+</head>
+
+<body>
+
+  <span id="span_url"><%= socketURL %></span>
+		<h1>Select Your Class</h1>
+
+ 	<div class="container">
+ 		<div class="bx">
+			<p>Mage</p>
+			<div class="bx-content">
+ 			<img class="img_mage" src="/images/mage_wizard.webp" />
+			</div>
+ 			<button type="submit" id="btn_mage" placeholder="Vote">Submit</button>
+ 		</div>
+
+		 <div class="bx">
+			<p>Warrior</p>
+			<div class="bx-content">
+ 			<img class="img_war" src="/images/warrior.webp" alt="img" />
+		</div>
+ 			<button type="submit" id="btn_warrior" placeholder="Vote">Submit</button>
+ 		</div>
+
+ 		<div class="bx">
+			<p>Archer</p>
+			<div class="bx-content">
+ 			<img class="img_archer" src="/images/archer.webp">
+		</div>
+ 			<button type="submit" id="btn_archer" placeholder="Vote">Submit</button>
+ 		</div>
+	</div>
+
+	<script type="text/javascript">
+		var socket= io.connect($("#span_url").html());
+
+		$("#btn_mage").click(function(){
+			socket.emit('vote_mage', '1');
+			socket.emit('vote_warrior', '0');
+			socket.emit('vote_archer', '0');
+			alert("you have chosen to vote the path of magic.");
+		});
+		$("#btn_warrior").click(function(){
+			socket.emit('vote_mage', '0');
+			socket.emit('vote_warrior', '1');
+			socket.emit('vote_archer', '0');
+			alert("you have chosen to vote the path of strength and tenacity.");
+		});
+		$("#btn_archer").click(function(){
+			socket.emit('vote_mage', '0');
+			socket.emit('vote_warrior', '0');
+			socket.emit('vote_archer', '1');
+			alert("you have chosen to vote the path of a hunter.");
+		});
+	</script>
+</body>
+</html>
