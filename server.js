@@ -22,15 +22,15 @@ res.render("pages/result", {socketURL:defURL});
 
 io.sockets.on('connection', function(socket){
 	socket.on('vote_mage', function(vote){
-	io.emit('vote_mage',vote);
+	io.emit('vote_mage', vote);
 	});
 
 	socket.on('vote_warrior', function(vote){
-		io.emit('vote_warrior',vote);
+		io.emit('vote_warrior', vote);
 		});
 
 	socket.on('vote_archer', function(vote){
-	io.emit('vote_archer',vote);
+	io.emit('vote_archer', vote);
 	});
 });
 
